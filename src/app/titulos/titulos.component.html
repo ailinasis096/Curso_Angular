@@ -1,0 +1,17 @@
+<!-- <input type="text" [(ngModel)]="inputNuevo">
+<p>{{ inputNuevo }}</p> -->
+<div class="card-container">
+  <label for="" style="margin-right: 5px"
+    >Usuario: <input type="text" style="margin-right: 20px"
+    [(ngModel)]="usuario"
+  /></label>
+
+  <label for="" style="margin-right: 5px"
+    >Password:
+    <input type="password" [(ngModel)]="password"/>
+  </label>
+  <br />
+  <button (click)="ingresar()" style="margin-top: 10px; width: 110px; margin-left: 50%; transform: translateX(-50%);">
+    Ingresar
+  </button>
+</div>
