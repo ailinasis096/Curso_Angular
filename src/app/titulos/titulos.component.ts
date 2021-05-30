@@ -9,6 +9,7 @@ export class TitulosComponent implements OnInit {
   imagen: string =
     'https://i.blogs.es/476b22/huawei-mate-40-pro-06/1366_2000.jpg';
   inputNuevo: string = 'Hola todo bien';
+  numero: number = 0;
   usuario: string= '';
   password: string='';
 
@@ -22,5 +23,20 @@ export class TitulosComponent implements OnInit {
   ingresar(){
     console.log(this.usuario)
     console.log(this.password)
+  }
+  escribirPassword(){
+    console.log(this.password)
+  }
+  sumar(){
+    this.numero += 1
+    console.log(this.numero)
+  }
+  resta(){
+    this.numero -= 1
+    console.log(this.numero)
+  }
+
+  escribir(evento:any){
+    console.log(evento.target.value)
   }
 }

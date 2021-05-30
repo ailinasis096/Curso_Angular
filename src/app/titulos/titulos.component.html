@@ -8,10 +8,23 @@
 
   <label for="" style="margin-right: 5px"
     >Password:
-    <input type="password" [(ngModel)]="password"/>
+    <input type="password" (ngModelChange)="escribirPassword()" [(ngModel)]="password"/>
   </label>
   <br />
   <button (click)="ingresar()" style="margin-top: 10px; width: 110px; margin-left: 50%; transform: translateX(-50%);">
     Ingresar
   </button>
+
+  <hr>
+  <label for="">Valor del numero: <input [(ngModel)]="numero"></label>
+  <hr>
+  <label for="">SUMA
+    <button (click)="sumar()">+</button>
+  </label>
+  <hr>
+  <label for="">Resta
+    <button (click)="resta()">-</button>
+  </label>
+  <hr>
+  <input type="text" (input)="escribir($event)">
 </div>
