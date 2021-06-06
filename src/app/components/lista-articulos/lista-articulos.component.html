@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="table-responsive" style="overflow-x:auto; align-content: stretch;">
+      <table class="table table-dark table-hover" id="tableArticulos" *ngIf="articulos && articulos.length">
+        <br>
+        <button type="button" class="btn btn-danger" (click)="mostrarEsconderImagen()">{{mostrarDatos ? "Esconder" : "Mostrar"}} Imagen</button>
+
+        <thead>
+          <th *ngIf="mostrarDatos">Imagen</th>
+          <th>Descripcion</th>
+          <th>Codigo</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Puntaje</th>
+          <th>Fecha Ingreso</th>
+          <tr *ngFor="let articulo of articulos" class="table-danger">
+            <td *ngIf="mostrarDatos" class="table-dark">
+              <img
+                [src]="articulo.imagen"
+                alt=""
+                style="width: 30px; height: auto"
+              />
+            </td>
+            <td class="table-dark">{{ articulo.descripcion }}</td>
+            <td class="table-dark">{{ articulo.codigo }}</td>
+            <td class="table-dark">{{ articulo.cantidad }}</td>
+            <td class="table-dark">{{ articulo.precio }}</td>
+            <td class="table-dark">{{ articulo.puntaje }}</td>
+            <td class="table-dark">{{articulo.fechaIngreso.toLocaleDateString()}}</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
+</html>

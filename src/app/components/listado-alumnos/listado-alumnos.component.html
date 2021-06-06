@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <div class="mb-3">
+        <label for="nombreAlumno" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombreAlumno"
+          aria-describedby="nombreAlumno"
+          [(ngModel)]="nombreAlumno"
+          name="nombreAlumno"
+          (input)="agregarNombre($event)"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="apellidoAlumno" class="form-label">Apellido</label>
+        <input
+          type="text"
+          [(ngModel)]="apellidoAlumno"
+          name="apellidoAlumno"
+          class="form-control"
+          id="apellidoAlumno"
+          (input)="agregarApellido($event)"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="agregarAlumno()">
+        Submit
+      </button>
+    </form>
+
+    <div class="card" style="width: 18rem">
+      <div class="card-header">Alumnos</div>
+      <div *ngFor="let alumnos of alumno">
+        <ul class="list-group list-group-flush" *ngIf="alumno.length">
+          <li>Nombre del alumno: {{ alumnos.nombreAlumno }}</li>
+          <li>Apellido del alumno: {{ alumnos.apellidoAlumno }}</li>
+          <li>{{ 50 | currency: "ARS":"symbol-narrow":"1.2-2" }}</li>
+          <li>{{ fecha | date: "shortDate" }}</li>
+          <li>{{ "librería" }}</li>
+          <li>
+            {{"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit
+            beatae corporis, iure, quos non earum temporibus magnam iste
+            pariatur libero atque eligendi reprehenderit tenetur placeat autem
+            odio enim debitis ea!" | pipePropio:'-'}}
+          </li>
+          <hr />
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

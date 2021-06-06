@@ -1,0 +1,88 @@
+<h3>PROPERTY BINDING</h3>
+<img [src]="imagen" alt="" />
+<!-- Asignar valor a una propiedad -->
+<hr />
+
+<h3>TWO WAY BINDING [(ngModel)]</h3>
+<input type="text" [(ngModel)]="inputNuevo" />
+<p>{{ inputNuevo }}</p>
+<!-- Mostrar los cambios y asignar valor -->
+<!-- Modificamos un valor y se va a ver tanto en la pantalla como en la variable que creemos -->
+<hr />
+<hr />
+
+<h3>EVENTOS</h3>
+<div class="card-container">
+  <label for="" style="margin-right: 5px"
+    >Usuario:
+    <input type="text" style="margin-right: 20px" [(ngModel)]="usuario"
+  /></label>
+  <br />
+  <br />
+  <h5>ngModelChange</h5>
+  <!-- Permite ver y asignar valores cuando a medida que va cambiando -->
+  <!--
+  Importante:
+  Todo ngModelChange debe tener un ngModel
+ -->
+  <label for="" style="margin-right: 5px"
+    >Password:
+    <input
+      type="password"
+      (ngModelChange)="escribirPassword()"
+      [(ngModel)]="password"
+    />
+  </label>
+  <br />
+  <button
+    (click)="ingresar()"
+    style="
+      margin-top: 10px;
+      width: 110px;
+      margin-left: 50%;
+      transform: translateX(-50%);
+    "
+  >
+    Ingresar
+  </button>
+
+  <hr />
+  <h5>CLICK</h5>
+  <label for="">Valor del numero: <input [(ngModel)]="numero" /></label>
+  <br />
+  <br />
+  <label for=""
+    >SUMA
+    <button (click)="sumar()">+</button>
+  </label>
+  <br />
+  <br />
+  <label for=""
+    >Resta
+    <button (click)="resta()">-</button>
+  </label>
+  <hr />
+  <h5>INPUT</h5>
+  <input type="text" (input)="escribir($event)" />
+
+  <hr />
+  <!-- <h5>FOCUS</h5>
+  <input type="text" (focus)="colorearFondo($event)" /> -->
+  <hr />
+  <h3>DIRECTIVAS</h3>
+  <br />
+  <div class="table-responsive">
+    <table class="table" *ngIf="articulos && articulos.length">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Descripción</th>
+          <th>Código</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Puntaje</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>

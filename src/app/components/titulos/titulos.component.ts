@@ -8,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class TitulosComponent implements OnInit {
   imagen: string =
     'https://i.blogs.es/476b22/huawei-mate-40-pro-06/1366_2000.jpg';
-  inputNuevo: string = 'Hola todo bien';
+
+  inputNuevo: string = 'Soy un input';
+
   numero: number = 0;
   usuario: string= '';
   password: string='';
+  colores: Array<string> = ["blue", "red", "orange"]
+  articulos: any[] = [{
 
+  }]
 
   constructor() {}
 
@@ -39,4 +44,14 @@ export class TitulosComponent implements OnInit {
   escribir(evento:any){
     console.log(evento.target.value)
   }
+
+
+  /* colorearFondo(evento:any){
+    console.log(evento);
+    evento.srcElement.styl
+    let color = this.colores[2];
+    return color;
+  } */
+
+
 }

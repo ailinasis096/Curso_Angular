@@ -1,0 +1,13 @@
+div{
+  align-content: center;
+}
+
+#tableArticulos{
+  text-align: center;
+  width: 80%;
+}
+th {
+  background-color: #ff9933;
+  color: white;
+
+}
