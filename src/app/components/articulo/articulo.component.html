@@ -1,6 +1,6 @@
 <div class="container">
   <div class="articulo" *ngFor="let articulo of articulos">
-    <h4>Nombre: <a [routerLink]="['/detalle-articulo',{articulo}]" >{{articulo.nombre}}</a></h4>
+    <h4>Nombre: <a  (click)="pasarParametros(articulo)">{{articulo.nombre}}</a></h4>
     <p>Descripcion: {{articulo.descripcion}}</p>
     <h5>Precio: {{articulo.precio | currency}}</h5>
   </div>

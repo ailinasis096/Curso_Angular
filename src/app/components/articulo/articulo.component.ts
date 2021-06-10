@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Articulo } from '../../models/articulo';
 
 @Component({
@@ -9,6 +10,7 @@ import { Articulo } from '../../models/articulo';
 export class ArticuloComponent implements OnInit {
   inputNombre: string = '';
   articulos: Array<Articulo> = new Array<Articulo>();
+  constructor(private ruta: Router) {}
 
   ngOnInit(): void {
     this.articulos.push(
@@ -31,5 +33,11 @@ export class ArticuloComponent implements OnInit {
   cambiarInput() {
     this.inputNombre = '';
     console.log(this.inputNombre);
+  }
+  pasarParametros(articuloRecibido: Articulo) {
+    this.ruta.navigate([
+      'detalle-articulo',
+      { articulo: JSON.stringify(articuloRecibido) },
+    ]);
   }
 }

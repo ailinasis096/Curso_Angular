@@ -45,7 +45,7 @@ const routes: Routes = [
     component: ArticuloComponent
   },
   {
-    path: 'detalle-articulo/{articulo}',
+    path: 'detalle-articulo',
     component: DetalleArticuloComponent
   },
   {
