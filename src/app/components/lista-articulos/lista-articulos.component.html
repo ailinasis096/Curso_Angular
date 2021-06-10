@@ -6,10 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div class="table-responsive" style="overflow-x:auto; align-content: stretch;">
-      <table class="table table-dark table-hover" id="tableArticulos" *ngIf="articulos && articulos.length">
-        <br>
-        <button type="button" class="btn btn-danger" (click)="mostrarEsconderImagen()">{{mostrarDatos ? "Esconder" : "Mostrar"}} Imagen</button>
+    <div
+      class="table-responsive"
+      style="overflow-x: auto; align-content: stretch"
+    >
+      <h1>{{ titulo }}</h1>
+      <table
+        class="table table-dark table-hover"
+        id="tableArticulos"
+        *ngIf="articulos && articulos.length"
+      >
+        <br />
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="mostrarEsconderImagen()"
+        >
+          {{ mostrarDatos ? "Esconder" : "Mostrar" }} Imagen
+        </button>
 
         <thead>
           <th *ngIf="mostrarDatos">Imagen</th>
@@ -31,8 +45,15 @@
             <td class="table-dark">{{ articulo.codigo }}</td>
             <td class="table-dark">{{ articulo.cantidad }}</td>
             <td class="table-dark">{{ articulo.precio }}</td>
-            <td class="table-dark">{{ articulo.puntaje }}</td>
-            <td class="table-dark">{{articulo.fechaIngreso.toLocaleDateString()}}</td>
+            <td class="table-dark">
+              <app-puntaje
+                [puntaje]="articulo.puntaje"
+                (puntajeClicked)="onPuntajeClicked($event)"
+              ></app-puntaje>
+            </td>
+            <td class="table-dark">
+              {{ articulo.fechaIngreso.toLocaleDateString() }}
+            </td>
           </tr>
         </thead>
       </table>

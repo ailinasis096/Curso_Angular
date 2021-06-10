@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 interface Articulos{
   id: number;
   descripcion: string;
@@ -18,6 +19,7 @@ interface Articulos{
 export class ListaArticulosComponent implements OnInit {
   constructor() {}
   mostrarDatos: Boolean = true;
+  titulo: string = "Titulo Inicial";
   articulos: Array<Articulos> = [
     {
       id: 1,
@@ -25,9 +27,9 @@ export class ListaArticulosComponent implements OnInit {
       codigo: '154as6df',
       cantidad: 10,
       precio: 10.3,
-      puntaje: 20,
+      puntaje: 5,
       imagen: '../../../assets/images/spiderman.jpeg',
-      fechaIngreso: new Date('03/06/2021')
+      fechaIngreso: new Date('03/06/2021'),
     },
     {
       id: 2,
@@ -35,9 +37,10 @@ export class ListaArticulosComponent implements OnInit {
       codigo: '154as6df123',
       cantidad: 101,
       precio: 1088.3,
-      puntaje: 40,
-      imagen:'https://comunidad.iebschool.com/iebs/files/2016/02/Taco_Party_4.gif',
-      fechaIngreso: new Date('03/05/2021')
+      puntaje: 4,
+      imagen:
+        'https://comunidad.iebschool.com/iebs/files/2016/02/Taco_Party_4.gif',
+      fechaIngreso: new Date('03/05/2021'),
     },
   ];
 
@@ -46,9 +49,11 @@ export class ListaArticulosComponent implements OnInit {
   mostrar: boolean = false;
   ngOnInit(): void {}
 
-  mostrarEsconderImagen(){
-
-    this.mostrarDatos = !this.mostrarDatos
-    console.log(this.mostrarDatos)
+  mostrarEsconderImagen() {
+    this.mostrarDatos = !this.mostrarDatos;
+    console.log(this.mostrarDatos);
+  }
+  onPuntajeClicked(mensaje: string): void {
+    this.titulo = 'Lista de Artículos - ' + mensaje;
   }
 }
